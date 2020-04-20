@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/scss/bootstrap.scss';
+
+.form-group{
+    margin-bottom: 2rem;
+}
+
+.nav-pills{
+    .nav-link{
+        &.active{
+            background-color: #00AD43;
+        }
+        .notification{
+        width: 2rem;
+        height: 2rem;
+    }
+}
+}
+
+.nav-item{
+    margin-right: 1rem;
+}
