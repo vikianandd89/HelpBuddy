@@ -3,33 +3,43 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { IntroComponent } from './intro/intro.component';
-import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './user/login/login.component';
+import { RegisterComponent } from './user/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotificationsComponent } from './notifications/notifications.component';
-import { DonationsComponent } from './donations/donations.component';
-import { PersonalDetailsComponent } from './personal-details/personal-details.component';
+import { HistoryComponent } from './history/history.component';
+import { UserComponent } from './user/user.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { DonateComponent } from './donate/donate.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ResponseService } from './services/response.service';
+import { UserService } from './services/user.service';
+import { DonationService } from './services/donation.service';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IntroComponent,
+    LoginComponent,
     RegisterComponent,
     DashboardComponent,
     NotificationsComponent,
-    DonationsComponent,
-    PersonalDetailsComponent
+    HistoryComponent,
+    UserComponent,
+    DonateComponent
   ],
   imports: [
     BrowserModule,
     RouterModule,
     CommonModule,
-    AppRoutingModule
-    
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [DonationService, ResponseService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,13 +1,28 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>HelloBuddy</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1976d2">
+  <script src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js"></script>
+  <script>
+    window.loadWatsonAssistantChat({
+      integrationID: "b82b5b1b-e8aa-47d7-a34e-81ff390d706e", // The ID of this integration.
+      region: "eu-gb" // The region your integration is hosted in.
+    }).then(function (instance) {
+      instance.render();
+    });
+  </script>
 </head>
+
 <body>
   <app-root></app-root>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
 </body>
+
 </html>

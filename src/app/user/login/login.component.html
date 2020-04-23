@@ -1,0 +1,30 @@
+<div class="py-5">
+    <h1>Help your buddy</h1>
+    <div class="mb-5">
+        <small class="form-text text-muted">Make a difference to people around you. Donate or Demand</small>
+    </div>
+
+    <form [formGroup]="loginForm">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address
+                <span class="text-danger">*</span>
+            </label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Enter email" formControlName="email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password
+                <span class="text-danger">*</span>
+            </label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+                formControlName="password">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
+
+        <div class="mt-2" role="alert" *ngIf="displayError">
+            <p class="text-danger">Invalid credentials. Please try again!</p>
+        </div>
+    </form>
+
+    Don't have an account? <a routerLink="/register">Register</a>
+</div>

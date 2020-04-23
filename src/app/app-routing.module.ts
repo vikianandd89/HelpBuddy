@@ -1,29 +1,32 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { IntroComponent } from './intro/intro.component';
-import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './user/login/login.component';
+import { RegisterComponent } from './user/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotificationsComponent } from './notifications/notifications.component';
-import { PersonalDetailsComponent } from './personal-details/personal-details.component';
-import { DonationsComponent } from './donations/donations.component';
+import { UserComponent } from './user/user.component';
+import { HistoryComponent } from './history/history.component';
+import { DonateComponent } from './donate/donate.component';
 
 
 const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(
-    [{path: '', component: IntroComponent},
-  {path: 'register', component:RegisterComponent},
-  {path: 'dashboard', component:DashboardComponent, 
-  children: [
-    {path: '', component:NotificationsComponent},
-    {path: 'notifications', component:NotificationsComponent},
-    {path: 'donations', component:DonationsComponent},
-  
-  {path: 'personal-details', component:PersonalDetailsComponent},
-  ]},
-  
-]
+    [{ path: '', component: LoginComponent },
+    { path: 'profile/:id', component: RegisterComponent },
+    { path: 'register', component: RegisterComponent },
+    {
+      path: 'home', component: DashboardComponent,
+      children: [
+        { path: '', component: NotificationsComponent },
+        { path: 'notifications', component: NotificationsComponent },
+        { path: 'history', component: HistoryComponent },
+        { path: 'help', component: DonateComponent },
+        { path: 'profile', component: UserComponent },
+      ]
+    }
+    ]
   )],
   exports: [RouterModule]
 })

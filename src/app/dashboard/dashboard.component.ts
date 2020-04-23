@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AnonymousSubject } from 'rxjs/internal/Subject';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
 
@@ -11,5 +10,4 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

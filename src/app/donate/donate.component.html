@@ -1,32 +1,32 @@
-<div *ngIf="notifications && notifications.length > 0">
-    <p>You have {{ notifications.length }} notification(s) from your community!</p>
+<div *ngIf="responses && responses.length > 0">
+    <p>You have {{ responses.length }} response(s) for your request</p>
 
     <table class="table table-hover">
         <thead>
             <tr>
-                <th scope="col">Request details</th>
+                <th scope="col">Response details</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
-        <ng-container *ngFor="let request of notifications">
+        <ng-container *ngFor="let response of responses">
             <tr>
                 <td class="pt-3">
-                    {{request.quantity}} {{request.units}} of {{request.item}} is required
+                    {{response.responder}} is willing to contribute you
                 </td>
                 <td class="pt-1">
-                    <button class="btn btn-link" (click)="add(request)" [disabled] = "request.isDeleted">
+                    <button class="btn btn-link" (click)="add(response)" [disabled] = "response.isDeleted">
                         <svg class="bi bi-check" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M13.854 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L6.5 10.293l6.646-6.647a.5.5 0 01.708 0z" clip-rule="evenodd" />
                         </svg>
                     </button>
-                    <button class="btn btn-link" (click)="remove(request)" *ngIf="!request.isDeleted">
+                    <button class="btn btn-link" (click)="remove(response)" *ngIf="!response.isDeleted">
                         <svg class="bi bi-x-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M16 8A8 8 0 110 8a8 8 0 0116 0zm-4.146-3.146a.5.5 0 00-.708-.708L8 7.293 4.854 4.146a.5.5 0 10-.708.708L7.293 8l-3.147 3.146a.5.5 0 00.708.708L8 8.707l3.146 3.147a.5.5 0 00.708-.708L8.707 8l3.147-3.146z" clip-rule="evenodd" />
                         </svg>
                     </button>
     
-                    <button class="btn btn-link" (click)="undo(request)" *ngIf="request.isDeleted">
+                    <button class="btn btn-link" (click)="undo(response)" *ngIf="response.isDeleted">
                         <svg class="bi bi-arrow-counterclockwise" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M12.83 6.706a5 5 0 00-7.103-3.16.5.5 0 11-.454-.892A6 6 0 112.545 5.5a.5.5 0 11.91.417 5 5 0 109.375.789z" clip-rule="evenodd"/>
                             <path fill-rule="evenodd" d="M7.854.146a.5.5 0 00-.708 0l-2.5 2.5a.5.5 0 000 .708l2.5 2.5a.5.5 0 10.708-.708L5.707 3 7.854.854a.5.5 0 000-.708z" clip-rule="evenodd"/>
@@ -38,19 +38,11 @@
         </tbody>
     </table>
     
-    <div class="mt-5" *ngIf="selectedRequest && requester">
-        <h3>Request details</h3>
-        Full name: <p>{{requester.fullName}}</p>
-        Mobile : <p>{{requester.phone}}</p>
-        Email: <p>{{requester.email}}</p>
-
-        <div class="form-group">
-            <label for="exampleInputPassword1">Enter the Quantity
-                <span class="text-danger">*</span>
-            </label>
-            <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Quantity">
-        </div>
-
-        <button type="submit" class="btn btn-primary" (click)="donate()">Donate</button>
+    <div class="mt-5" *ngIf="selectedResponse && responder">
+        <h3>Donor details</h3>
+        Full name: <p>{{responder.fullName}}</p>
+        Mobile : <p>{{responder.phone}}</p>
+        Email: <p>{{responder.email}}</p>
+        <button type="submit" class="btn btn-primary" (click)="donate()">Close request</button>
     </div>
 </div>
