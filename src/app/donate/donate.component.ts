@@ -39,7 +39,7 @@ export class DonateComponent implements OnInit {
     request.isDeleted = false;
   }
 
-  closeRequest(request) {
+  donate() {
     
   }
 }

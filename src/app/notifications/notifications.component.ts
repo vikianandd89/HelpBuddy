@@ -39,7 +39,7 @@ export class NotificationsComponent implements OnInit {
     request.isDeleted = false;
   }
 
-  donate(request) {
+  donate() {
 
   }
 }

@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
     var paramId = this.route.snapshot.params["id"];
 
     if (paramId) {
-      this.service.getUser().subscribe(response => {
+      this.service.getUser(this.service.loggedInUserId).subscribe(response => {
         this.user = response;
         this.setFormValues();
       })
