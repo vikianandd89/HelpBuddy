@@ -17,6 +17,8 @@ export class DonationService {
 
   private url = "https://cd8288a2-1c6f-4f72-b856-6870fb292481-bluemix.cloudant.com/helpbuddy/_find";
 
+  private _count = 0;
+
   constructor(private http: HttpClient) { }
 
   private httpOptions = {

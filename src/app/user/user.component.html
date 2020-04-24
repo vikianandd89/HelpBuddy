@@ -1,19 +1,21 @@
 <div *ngIf="user">
     <h1>Hi {{user.fullName}}, </h1>
-        <div class="mb-4">
+    <div class="mt-4">
+        <p class="font-weight-bold">Your user id</p>
+        <p>{{user._id}}</p>
         <p class="font-weight-bold">Email</p>
         <p>{{user.email}}</p>
-</div>
-<div class="mb-4">
-    <p class="font-weight-bold">Phone number</p>
-    <p>{{user.phone}}</p>
-</div>
-<div class="mb-4">
-    <p class="font-weight-bold">Address</p>
-    <p>{{user.address.line1}}</p>
-    <p>{{user.address.line2}}</p>
-    <p>{{user.address.city}}</p>
-    <p>{{user.address.postCode}}</p>
-</div>
-<button class="btn btn-primary" (click)="navigate()">Update profile</button>
+    </div>
+    <div class="mb-4">
+        <p class="font-weight-bold">Phone number</p>
+        <p>{{user.phone}}</p>
+    </div>
+    <div class="mb-4">
+        <p class="font-weight-bold">Address</p>
+        <p>{{user.address.line1}}</p>
+        <p>{{user.address.line2}}</p>
+        <p>{{user.address.city}}</p>
+        <p>{{user.address.postCode}}</p>
+    </div>
+    <button class="btn btn-primary" (click)="navigate()">Update profile</button>
 </div>
