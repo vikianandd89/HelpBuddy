@@ -1,7 +1,12 @@
 <div class="py-5">
-    <h1>Help your buddy</h1>
+    <!-- <h1>Help your buddy</h1> -->
+    <div id="myHeading">
+        <img height="42px" width="42px"  src="assets\icons\logo.png" />
+        <h1>Help your buddy</h1>
+    </div>
+
     <div class="mb-5">
-        <small class="form-text text-muted">Make a difference to people around you. Donate or Demand</small>
+        <p>Make a difference to people around you. Donate or Demand in an easy way.</p>
     </div>
 
     <form [formGroup]="loginForm">
@@ -25,6 +30,4 @@
             <p class="text-danger">Invalid credentials. Please try again!</p>
         </div>
     </form>
-
-    Don't have an account? <a routerLink="/register">Register</a>
 </div>

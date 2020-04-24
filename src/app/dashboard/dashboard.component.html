@@ -1,7 +1,10 @@
 <div>
   <div class="mb-4">
-    <h1>Help your buddies!!!</h1>
-    <small class="form-text text-muted">Make a difference to people around you. Donate or Demand</small>
+    <div id="myHeading">
+      <img height="42px" width="42px" src="assets\icons\logo.png" />
+      <h1>Help your buddy</h1>
+      <p>Make a difference to people around you. Donate or Demand in an easy way</p>
+    </div>
   </div>
 
   <nav class="mt-5">
@@ -9,13 +12,13 @@
       <li class="nav-item">
         <a class="nav-link " routerLink="notifications" [routerLinkActive]="['active']">
           <img class="notification" src="assets\icons\bell.png" alt="Notification">
-          <span class="badge badge-pill badge-primary">{{notificationsCount}}</span>
+          <span class="badge badge-pill badge-primary badge-notify">{{notificationsCount}}</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link " routerLink="help" [routerLinkActive]="['active']">
           <img class="notification" src="assets\icons\helping.png" alt="help others">
-          <span class="badge badge-pill badge-primary">{{responseCount}}</span>
+          <span class="badge badge-pill badge-primary badge-notify">{{responseCount}}</span>
         </a>
       </li>
       <li class="nav-item">

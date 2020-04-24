@@ -1,28 +1,129 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~bootstrap/scss/bootstrap.scss';
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~bootstrap/scss/variables.scss";
 
-.form-group{
+//Theming
+//$blue: #0000ff;
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100vh;
+    color: white;
+    background: linear-gradient(326deg, #861657 0%, #ffa69e 74%) fixed;
+}
+
+.form-group {
     margin-bottom: 2rem;
 }
 
-.nav-pills{
-    .nav-link{
-        border-radius: 0rem;
-        &.active{
-            background-color: #ffffff;
-            border-bottom: 2px solid #0000ff;
-        }
-        .notification{
-        width: 2rem;
-        height: 2rem;
-    }
-}
+.form-control {
+    //background-color: transparent !important;
+    border: 1.15px solid #561139;
+    border-radius: 0;
 }
 
-.nav-item{
+.nav-pills {
+    background-color: rgba(0, 0, 0, 0.075);
+    .nav-link {
+        border-radius: 0rem;
+        &.active {
+            background-color: transparent;
+            border-bottom: 2px solid #561139;
+        }
+        .notification {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+}
+.nav-item {
     margin-right: 1rem;
 }
 
 .badge {
-    margin-left: -1rem;
+    &.badge-donate {
+        margin-left: -0.5rem;
+        margin-bottom: -0.5rem;
+    }
+    &.badge-notify {
+        margin-left: -1rem;
+    }
+}
+
+.btn-primary {
+    background-color: #561139;
+    border-color: #561139;
+
+    &:focus {
+        outline: 0 !important;
+        background-color: #a77c77;
+        border: 1.25px solid #a77c77;
+        box-shadow: none !important;
+    }
+    &:hover {
+        background-color: #a77c77;
+    }
+
+    &:not(:disabled),
+    &:not(.disabled) {
+        &:active {
+            background-color: #a77c77 !important;
+            border-color: #a77c77 !important;
+        }
+    }
+}
+
+a {
+    color: #561139;
+    text-decoration: underline;
+    &:focus {
+        outline: 2px solid #561139;
+    }
+}
+
+h1,
+h2 {
+    color: #561139;
+}
+
+#myHeading img {
+    float:left;
+    margin-right:10px;
+    position: relative;
+    top:2px;
+  }
+
+.table {
+    background-color: rgba(0, 0, 0, 0.075);
+    thead {
+        th {
+            color: #561139;
+            border-top: none;
+        }
+    }
+
+    td {
+        color: #561139;
+        border: none;
+    }
+
+    button {
+        &:focus {
+            outline: 2px solid #561139;
+        }
+    }
+}
+
+.profile {
+    background-color: rgba(0, 0, 0, 0.075);
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }

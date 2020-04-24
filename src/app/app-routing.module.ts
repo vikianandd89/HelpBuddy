@@ -7,13 +7,15 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { UserComponent } from './user/user.component';
 import { HistoryComponent } from './history/history.component';
 import { DonateComponent } from './donate/donate.component';
+import { WelcomeComponent } from './user/welcome/welcome.component';
 
 
 const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(
-    [{ path: '', component: LoginComponent },
+    [{ path: '', component: WelcomeComponent },
+    {path: 'login', component:LoginComponent},
     { path: 'profile/:id', component: RegisterComponent },
     { path: 'register', component: RegisterComponent },
     {

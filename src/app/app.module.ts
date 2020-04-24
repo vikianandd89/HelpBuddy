@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './user/login/login.component';
@@ -18,6 +17,7 @@ import { ResponseService } from './services/response.service';
 import { UserService } from './services/user.service';
 import { DonationService } from './services/donation.service';
 import { environment } from '../environments/environment';
+import { WelcomeComponent } from './user/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import { environment } from '../environments/environment';
     NotificationsComponent,
     HistoryComponent,
     UserComponent,
-    DonateComponent
+    DonateComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
