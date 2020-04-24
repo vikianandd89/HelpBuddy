@@ -19,7 +19,7 @@ const routes: Routes = [];
     {
       path: 'home', component: DashboardComponent,
       children: [
-        { path: '', component: NotificationsComponent },
+        { path: '', redirectTo: 'notifications', pathMatch: 'full' },
         { path: 'notifications', component: NotificationsComponent },
         { path: 'history', component: HistoryComponent },
         { path: 'help', component: DonateComponent },
