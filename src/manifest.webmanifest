@@ -1,6 +1,6 @@
 {
-  "name": "hello-buddy",
-  "short_name": "hello-buddy",
+  "name": "help-buddy",
+  "short_name": "help-buddy",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
