@@ -90,11 +90,11 @@ h2 {
 }
 
 #myHeading img {
-    float:left;
-    margin-right:10px;
+    float: left;
+    margin-right: 10px;
     position: relative;
-    top:2px;
-  }
+    top: 2px;
+}
 
 .table {
     background-color: rgba(0, 0, 0, 0.075);
@@ -126,4 +126,9 @@ h2 {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+}
+
+.modal-content {
+    color: #561139;
+
 }

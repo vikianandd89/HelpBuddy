@@ -10,14 +10,18 @@ export class DashboardComponent implements OnInit {
   notificationsCount = 0;
   responseCount = 0;
 
+  private  notificationQuery = { "selector": { "type": "request", "isActive": true }, "execution_stats": true, "limit": 21, "skip": 0 }
+  private  responseQuery = { "selector": { "type": "response", "isActive": true }, "execution_stats": true, "limit": 21, "skip": 0 }
+
+
   constructor(private service: DonationService) { }
 
   ngOnInit(): void {
-    this.service.getNotifications().subscribe(response => {
+    this.service.getDetailsCount(this.notificationQuery).subscribe(response => {
       this.notificationsCount = response.docs.length;
     });
 
-    this.service.getResponse().subscribe(response => {
+    this.service.getDetailsCount(this.responseQuery).subscribe(response => {
       this.responseCount = response.docs.length;
     });
   }

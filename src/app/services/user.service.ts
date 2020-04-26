@@ -46,7 +46,7 @@ export class UserService {
     return this.http.post<{}>(this.CLOUDANT_URL, doc, this.httpOptions)
   }
 
-  getUser(userId?: string): Observable<any> {
+  getUser(userId: string): Observable<any> {
     const url = this.CLOUDANT_URL + userId;
     return this.http.get(url, this.httpOptions).pipe(map((response: any) => {
       return response;

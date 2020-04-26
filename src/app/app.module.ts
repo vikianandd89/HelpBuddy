@@ -18,6 +18,7 @@ import { UserService } from './services/user.service';
 import { DonationService } from './services/donation.service';
 import { environment } from '../environments/environment';
 import { WelcomeComponent } from './user/welcome/welcome.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { WelcomeComponent } from './user/welcome/welcome.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ModalModule.forRoot()
   ],
   providers: [DonationService, ResponseService, UserService],
   bootstrap: [AppComponent]

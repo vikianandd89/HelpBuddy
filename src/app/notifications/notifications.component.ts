@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { DonationService } from '../services/donation.service';
 import { UserService } from '../services/user.service';
+
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+
 
 @Component({
   templateUrl: './notifications.component.html'
@@ -12,21 +15,27 @@ export class NotificationsComponent implements OnInit {
   selectedRequest: any;
   requester: any;
 
-  constructor(private donation: DonationService, private userService: UserService) { }
+  modalRef: BsModalRef;
+
+
+  private query = { "selector": { "type": "request", "isActive": true }, "execution_stats": true, "limit": 21, "skip": 0 }
+
+  constructor(private donation: DonationService, private userService: UserService, private modalService: BsModalService) { }
 
   ngOnInit(): void {
-    this.donation.getNotifications().subscribe(response => {
-      this.notifications = response.docs;
+    this.donation.getDetails(this.query).subscribe(response => {
+      this.notifications = response;
       this.notifications.forEach(notification => {
         notification.isDeleted = false;
       });
     });
   }
 
-  add(request) {
+  add(template, request) {
     this.selectedRequest = request;
     this.userService.getUser(request.requester).subscribe(response => {
       this.requester = response;
+      this.modalRef = this.modalService.show(template);
     })
   }
 
@@ -39,7 +48,5 @@ export class NotificationsComponent implements OnInit {
     request.isDeleted = false;
   }
 
-  donate() {
-
-  }
+  donate() { }
 }

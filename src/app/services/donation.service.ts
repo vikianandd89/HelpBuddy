@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, forkJoin } from 'rxjs';
+import { map, flatMap, switchMap, mergeMap } from 'rxjs/operators';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,10 @@ export class DonationService {
 
   private _count = 0;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private service: UserService) { }
+
+  private notifications: any;
+  private responses: any;
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -29,16 +33,25 @@ export class DonationService {
     withCredentials: true,
   };
 
-  getNotifications(): Observable<any> {
-    const query = {"selector":{"type":"request"},"execution_stats":true,"limit":21,"skip":0}
-    
-    return this.http.post(this.url, query, this.httpOptions);
+  getDetails(query): Observable<any> {
+    return this.http.post(this.url, query, this.httpOptions)
+      .pipe(
+        map((responses: any) => {
+          this.notifications = responses.docs
+          return responses.docs;
+        }),
+        (
+          flatMap((responses: any[]) => this.service.getUser(responses[0].requester)
+            .pipe(
+              map(response =>
+                this.notifications.filter(notification => notification.requester === response._id).map(notification => {
+                  notification.user = response.fullName;
+                  return notification;
+                })
+              )))));
   }
 
-  
-  getResponse(): Observable<any> {
-    const query = {"selector":{"type":"response"},"execution_stats":true,"limit":21,"skip":0}
-    
+  getDetailsCount(query): Observable<any> {
     return this.http.post(this.url, query, this.httpOptions);
   }
 
