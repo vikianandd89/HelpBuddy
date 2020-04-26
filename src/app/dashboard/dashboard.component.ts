@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
     });
 
     this.service.getDetailsCount(this.responseQuery).subscribe(response => {
-      this.responseCount = response.docs.filter(r => r.responder !== this.userService.loggedInUserId).length;
+      this.responseCount = response.docs.filter(r => r.requester === this.userService.loggedInUserId).length;
     });
 
     this.event.notificationsCount.subscribe(value => this.notificationsCount = value);

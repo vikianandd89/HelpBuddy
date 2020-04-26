@@ -48,8 +48,8 @@ export class DonateComponent implements OnInit {
 
   private getResponse(): void {
     this.service.getResponses(this.query).subscribe(response => {
-      this.responses = response.filter(r => r.responder !== this.userService.loggedInUserId);
-      this.event.sendResponseCount(response.length);
+      this.responses = response.filter(r => r.requester === this.userService.loggedInUserId);
+      this.event.sendResponseCount(this.responses.length);
 
       return this.responses;
     });

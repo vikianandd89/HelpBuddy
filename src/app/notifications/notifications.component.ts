@@ -29,6 +29,7 @@ export class NotificationsComponent implements OnInit {
 
     this.service.getNotifications(this.query).subscribe(response => {
       this.notifications  = response.filter(r => r.requester !== this.userService.loggedInUserId);
+      this.event.sendNotificationCount(this.notifications.length);
     });
   }
 
