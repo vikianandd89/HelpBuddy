@@ -37,7 +37,7 @@ export class UserService {
     const url = this.CLOUDANT_URL + appendQuery;
 
     return this.http.get(url, this.httpOptions).pipe(map((response: any) => {
-      return response.total_rows > 0 ? response.rows[0] : [];
+      return response.total_rows > 0 ? response.rows.find(r => r.fields.email === email) : [];
     }));
   }
 
