@@ -59,7 +59,8 @@ export class NotificationsComponent implements OnInit {
       };
 
       this.service.donate(input).subscribe(response => {
-        this.event.sendNotificationCount(response.length);
+        // // this.event.sendNotificationCount(response.length);
+        this.modalService.hide(1);
       });
     } else {
       this.displayError = true;
@@ -68,7 +69,7 @@ export class NotificationsComponent implements OnInit {
 
   private initialise(): void {
     this.notificationForm = this.formBuilder.group({
-      quantity: [0, [Validators.required, Validators.max(1)]]
+      quantity: [0, [Validators.required]]
     })
   }
 }
