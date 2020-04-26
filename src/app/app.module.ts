@@ -19,6 +19,7 @@ import { DonationService } from './services/donation.service';
 import { WelcomeComponent } from './user/welcome/welcome.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { EventEmiterService } from './services/event-emitter.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { EventEmiterService } from './services/event-emitter.service';
     FormsModule,
     ModalModule.forRoot()
   ],
-  providers: [DonationService, ResponseService, UserService, EventEmiterService],
+  providers: [DonationService, ResponseService, UserService, EventEmiterService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private service: UserService, private router: Router) { }
 
   ngOnInit(): void {
+    sessionStorage.setItem("loggedInUser", "");
+    
     this.initialise();
   }
 
