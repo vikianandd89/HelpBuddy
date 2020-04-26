@@ -16,9 +16,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ResponseService } from './services/response.service';
 import { UserService } from './services/user.service';
 import { DonationService } from './services/donation.service';
-import { environment } from '../environments/environment';
 import { WelcomeComponent } from './user/welcome/welcome.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { EventEmiterService } from './services/event-emitter.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     FormsModule,
     ModalModule.forRoot()
   ],
-  providers: [DonationService, ResponseService, UserService],
+  providers: [DonationService, ResponseService, UserService, EventEmiterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

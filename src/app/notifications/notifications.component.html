@@ -1,4 +1,4 @@
-<div *ngIf="notifications && notifications.length > 0">
+<div *ngIf="notifications && notifications.length > 0; else defaultSection">
     <p>Donation is not just giving but stamping an impact!</p>
 
     <table class="table table-hover">
@@ -45,35 +45,37 @@
                         </button>
                     </td>
                 </tr>
+
+                <ng-template #template>
+                    <div class="modal-header">
+                        <h4 class="modal-title">{{requester.fullName}}'s message</h4>
+                        <button type="button" class="close pull-right" (click)="modalRef.hide()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{request.message}}</p>
+                        Requested Quantity: {{request.quantity}}
+                        <form [formGroup]="notificationForm">
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Enter the Quantity
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Quantity" formControlName="quantity">
+                            </div>
+                            <button type="submit" class="btn btn-primary" (click)="donate(request)">Donate</button>
+                            <div class="mt-2" role="alert" *ngIf="displayError">
+                                <p class="text-danger">Please enter a valid quantity to proceed</p>
+                            </div>
+                        </form>
+                    </div>
+                </ng-template>
             </ng-container>
         </tbody>
     </table>
 </div>
 
 
-<ng-template #template>
-    <div class="modal-header">
-
-        <!-- Modal Title -->
-        <h4 class="modal-title">{{requester.fullName}}'s message</h4>
-
-        <!-- Close Button -->
-        <button type="button" class="close pull-right" (click)="modalRef.hide()">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-
-    <!-- Modal Body -->
-    <div class="modal-body">
-        <p>{{selectedRequest.message}}</p>
-        Requested Quantity: {{selectedRequest.quantity}}
-        <div class="form-group">
-            <label for="exampleInputPassword1">Enter the Quantity
-                <span class="text-danger">*</span>
-            </label>
-            <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Quantity">
-        </div>
-
-        <button type="submit" class="btn btn-primary" (click)="donate()">Donate</button>
-    </div>
+<ng-template #defaultSection>
+    No request at the moment.
 </ng-template>
