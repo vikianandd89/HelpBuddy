@@ -21,12 +21,8 @@ export class LoginComponent implements OnInit {
   login(): void {
     if (this.loginForm.valid) {
       this.service.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(response => {
-        if (response && response.id) {
-          this.service.loggedInUserId = response.id
-          this.router.navigate(["./home"]);
-        } else {
-          this.displayError = true;
-        }
+        this.service.loggedInUserId = response.docs[0]._id
+        this.router.navigate(["./home"]);
       });
     } else {
       this.displayError = true;

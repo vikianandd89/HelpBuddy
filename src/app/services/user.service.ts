@@ -12,6 +12,8 @@ export class UserService {
   private CLOUDANT_PASSWORD = "6512026bf2967b862f943083ff088077ad4f3f40c05a82e9ddbc713839d02264"
   private CLOUDANT_URL = "https://cd8288a2-1c6f-4f72-b856-6870fb292481-bluemix.cloudantnosqldb.appdomain.cloud/helpbuddy/";
 
+  private url = "https://cd8288a2-1c6f-4f72-b856-6870fb292481-bluemix.cloudant.com/helpbuddy/_find";
+
   private BASIC_AUTH = 'Basic ' + btoa(this.CLOUDANT_USERNAME + ':' + this.CLOUDANT_PASSWORD);
 
   get loggedInUserId(): string {
@@ -33,12 +35,10 @@ export class UserService {
   };
 
   login(email: string, password: string): Observable<any> {
-    const appendQuery = "_design/user/_search/login?q=email:" + email + " AND password:" + password;
-    const url = this.CLOUDANT_URL + appendQuery;
+    const query = { "selector": { "type": "User", "email": email, "password": password }, "execution_stats": true, "limit": 21, "skip": 0 }
 
-    return this.http.get(url, this.httpOptions).pipe(map((response: any) => {
-      return response.total_rows > 0 ? response.rows.find(r => r.fields.email === email) : [];
-    }));
+
+    return this.http.post(this.url, query, this.httpOptions)
   }
 
   register(formObject: any): Observable<any> {
