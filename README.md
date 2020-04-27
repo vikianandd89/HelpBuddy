@@ -1,27 +1,108 @@
-# HelloBuddy
+# Helping People in need
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+[![Slack](https://img.shields.io/badge/Join-Slack-blue)](https://callforcode.org/slack) [![Website](https://img.shields.io/badge/View-Website-blue)](https://helpbuddy.eu-gb.mybluemix.net/)
 
-## Development server
+## Contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. [Short description](#short-description)
+1. [Demo video](#demo-video)
+1. [The architecture](#the-architecture)
+1. [Long description](#long-description)
+1. [Project roadmap](#project-roadmap)
+1. [Getting started](#getting-started)
+1. [Live demo](#live-demo)
+1. [Built with](#built-with)
+1. [Contributing](#contributing)
+1. [Authors](#authors)
 
-## Code scaffolding
+## Short description
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### What's the problem?
 
-## Build
+At any pandemic situation, there are people who need help. There are many people who are ready to help but they would struggle to find where the help is really need and how to connect with those people and help effectively to meet their basic needs.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### How can technology help?
 
-## Running unit tests
+Allow people to request for help which can be notifed to all people who are ready to help.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### The idea
 
-## Running end-to-end tests
+Providing a web/mobile app for people to find others who need help and connecting them in real time.
+We haven't used HERE location services to filter the people for receiving the notification.
+This helps to find donors/volunteers nearest to your location and so it would help to receive the help quicker.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Demo video
 
-## Further help
+![Watch the video](https://youtu.be/ZjiMPW72UA4)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## The architecture
+
+![Architecture](https://github.com/prakashalamanda/HelpBuddy/blob/master/assets/Architecture.PNG)
+
+1 - Requester request for assistance with IBM chatbot.
+2,3,4 - The message is forwarded to Cloudant DB via a IBM discovery API
+5 - IBM Push notification reads the message and notifies to the web app
+6 - Web App shows the message in the notificaiton panel
+7 - User would see and accept/ignore the request and submit it back to API
+
+Both Web Portal and Web service is protected using IBM APP Id.
+
+## Long description
+
+[More detail is available here](https://github.com/prakashalamanda/HelpBuddy/blob/master/description.md)
+
+## Project roadmap
+
+![Roadmap](https://github.com/prakashalamanda/HelpBuddy/blob/master/Roadmap.PNG)
+
+## Getting started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
+
+### Prerequisites
+
+What things you need to install the software and how to install them
+
+1. NodejS
+2. Web Service set up and running locally.Follow the steps mentioned [here](https://github.com/Hemachandranhj/CallForCodeNode/blob/master/README.md)
+
+### Installing
+
+Follow the steps below to get the development env running
+
+
+```node
+npm install
+npm run ng serve
+Server running at http://localhost:4200/
+```
+
+## Live demo
+
+You can access the portal [Help your buddy](https://helpbuddy.eu-gb.mybluemix.net/)
+
+please user the below credentials as we haven't integrated with different login providers like Google, Facebook or create an user for yourself.
+
+username: phil@test.com 
+password: testuser
+
+You can find a running system to test at [assistanceportal.eu-gb.cf.appdomain.cloud](https://assistanceportal.eu-gb.cf.appdomain.cloud/)
+
+## Built with
+
+* Angualar 8
+* Bootstrap
+* IBM Watson Assistant
+* IBM Discovery API
+* IBM Cloudant DB
+
+## Contributing
+
+Please reach out to authors.
+
+## Authors
+
+* **Ananda Krishnan Rajasekar** 
+* **Rajaprabhu** 
+* **Sasi Munusamy** 
+* **Prakash Alamanda** 
