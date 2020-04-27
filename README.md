@@ -86,8 +86,6 @@ please user the below credentials as we haven't integrated with different login 
 username: phil@test.com 
 password: testuser
 
-You can find a running system to test at [assistanceportal.eu-gb.cf.appdomain.cloud](https://assistanceportal.eu-gb.cf.appdomain.cloud/)
-
 ## Built with
 
 * Angualar 8
